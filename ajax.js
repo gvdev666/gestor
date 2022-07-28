@@ -26,19 +26,14 @@ $(document).ready(function(){
 
 	$(document).on('submit', '#user_form', function(event){
 		event.preventDefault();
-		var firstName = $('#nombres').val();
-		var lastName = $('#edad').val();
-		var extension = $('#user_image').val().split('.').pop().toLowerCase();
-		if(extension != '')
-		{
-			if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
-			{
-				alert("Invalid Image File");
-				$('#user_image').val('');
-				return false;
-			}
-		}	
-		if(firstName != '' && lastName != '')
+		var nombres = $('#nombres').val();
+		var edad = $('#edad').val();
+		var telefono = $('#telefono').val();
+        var correo = $('#correo').val();
+        var auto_interes = $('#auto_interes').val();
+        var modelo_interes = $('#modelo_interes').val();
+		
+		if(nombres != '' && edad != '' &&telefono != '' && correo != '' && auto_interes != '' && modelo_interes != '')
 		{
 			$.ajax({
 				url:"insert.php",
